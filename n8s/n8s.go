@@ -6,7 +6,7 @@ import (
 )
 
 // N8n will numerize the given word.
-func N8n(word string) string {
+func N8s(word string) string {
 	// Handle numbers
 	_, err := strconv.ParseInt(word, 10, 64)
 	if err == nil {

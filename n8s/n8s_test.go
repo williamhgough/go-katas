@@ -2,7 +2,7 @@ package n8n
 
 import "testing"
 
-func TestN8n(t *testing.T) {
+func TestN8s(t *testing.T) {
 	type args struct {
 		word string
 	}
@@ -17,7 +17,7 @@ func TestN8n(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := N8n(tt.args.word); got != tt.want {
+			if got := N8s(tt.args.word); got != tt.want {
 				t.Errorf("N8n() = %v, want %v", got, tt.want)
 			}
 		})
