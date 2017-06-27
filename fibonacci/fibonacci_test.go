@@ -7,7 +7,7 @@ import (
 )
 
 func TestFibonacci(t *testing.T) {
-	assert.Equal(t, Fibonacci(10), []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, "Given 10, return the first 10 numbers of fibo sequence.")
+	assert.Equal(t, Fibonacci(10), []int{0, 1, 1, 2, 3, 5, 8, 13, 21, 34}, "Given 10, return the first 10 numbers of fibo sequence.")
 }
 
 func TestFibonacciPrevious(t *testing.T) {

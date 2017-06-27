@@ -1,25 +1,13 @@
-package n8n
+package n8s
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestN8s(t *testing.T) {
-	type args struct {
-		word string
-	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		{"handle single word", args{"william"}, "w5m"},
-		{"handle more than one word", args{"william gough"}, "w10h"},
-		{"handle numbers", args{"2"}, ""},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := N8s(tt.args.word); got != tt.want {
-				t.Errorf("N8n() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	assert.Equal(t, N8s("william"), "w5m", "handle single word")
+	assert.Equal(t, N8s("william gough"), "w10h", "handle more than one word")
+	assert.Equal(t, N8s("2"), "", "handle numbers")
 }

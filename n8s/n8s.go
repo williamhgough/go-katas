@@ -1,4 +1,4 @@
-package n8n
+package n8s
 
 import (
 	"strconv"
