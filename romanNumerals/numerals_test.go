@@ -1,7 +1,10 @@
 package romanNumerals
 
-import "testing"
-import "github.com/stretchr/testify/assert"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestNumerals(t *testing.T) {
 	assert.Equal(t, "I", Numerals(1), "Returns roman numeral for 1 = I")
