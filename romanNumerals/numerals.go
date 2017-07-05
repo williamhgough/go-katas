@@ -1,52 +1,39 @@
 package romanNumerals
 
-// Numerals will return roman numeral value of an integer.
-func Numerals(num int) string {
-	numerals := map[int]string{
-		1: "I",
-		2: "II",
-		3: "III",
-		4: "IV",
-		5: "V",
-	}
+import "strings"
 
-	for key, val := range numerals {
-		if num == key {
-			return val
-		}
-	}
-	return "not found"
+// Numeral holds a decimal value and string representation of runes.
+type Numeral struct {
+	Value uint16
+	Rune  string
 }
 
-func divMod(quotient int, remainder int) {
+var numerals = []Numeral{
+	{Value: 10, Rune: "X"},
+	{Value: 9, Rune: "IX"},
+	{Value: 5, Rune: "V"},
+	{Value: 4, Rune: "IV"},
+	{Value: 1, Rune: "I"},
+}
 
+// IntToNumerals will return roman numeral value of an integer.
+func IntToNumerals(num uint16) (roman string) {
+	for _, numeral := range numerals {
+		amount, remaining := DivMod(num, numeral.Value)
+		num = remaining
+		roman += strings.Repeat(numeral.Rune, int(amount))
+	}
+	return
+}
+
+// DivMod divides a number and returns its remainder.
+func DivMod(number uint16, divisor uint16) (quotient, remainder uint16) {
+	quotient = number / divisor
+	remainder = number % divisor
+	return
 }
 
 // NumeralsToInts takes a roman numeral and returns an integer.
-func NumeralsToInts(input string) int {
-
-	var value int
-
-	numerals := map[rune]int{
-		'I': 1,
-		'V': 5,
-		'X': 10,
-	}
-
-	switch input {
-	case "IV":
-		return 4
-	case "IX":
-		return 9
-	}
-
-	for _, char := range input {
-		for key, val := range numerals {
-			if char == key {
-				value += val
-			}
-		}
-	}
-
-	return value
+func NumeralsToInts(input string) (value uint16) {
+	return 0
 }

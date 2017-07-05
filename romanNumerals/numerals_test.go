@@ -6,10 +6,12 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNumerals(t *testing.T) {
-	assert.Equal(t, "I", Numerals(1), "Returns roman numeral for 1 = I")
-	assert.Equal(t, "II", Numerals(2), "Returns roman numeral for 2 = II.")
-	assert.Equal(t, "not found", Numerals(53), "Returns not found for values outside of map.")
+func TestIntToNumerals(t *testing.T) {
+	assert.Equal(t, "I", IntToNumerals(1), "Returns roman numeral for 1 = I")
+	assert.Equal(t, "II", IntToNumerals(2), "Returns roman numeral for 2 = II.")
+	assert.Equal(t, "IV", IntToNumerals(4), "Returns roman numeral for 4 = IV.")
+	assert.Equal(t, "IX", IntToNumerals(9), "Returns roman numeral for 9 = IX.")
+	assert.Equal(t, "X", IntToNumerals(10), "Returns roman numeral for 10 = X.")
 }
 
 func TestNumeralsToInts(t *testing.T) {
