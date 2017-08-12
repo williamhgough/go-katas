@@ -1,18 +1,19 @@
 package fibonacci
 
-func Fibonacci(length int) []int {
-	items := make([]int, length)
-	return items
-}
-
-func FibonacciPrevious(start int) func() int {
-	return func() int {
+func Fibonacci(n int) int {
+	if n == 0 {
 		return 0
+	} else if n == 1 {
+		return 1
+	} else {
+		return Fibonacci(n-2) + Fibonacci(n-1)
 	}
 }
 
-func FibonacciNext(start int) func() int {
-	return func() int {
-		return 1
+func FibonacciSeries(start, end int) []int {
+	var fib []int
+	for i := start; i < end+1; i++ {
+		fib = append(fib, Fibonacci(i))
 	}
+	return fib
 }
